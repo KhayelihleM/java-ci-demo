@@ -22,4 +22,4 @@ jobs:
         run: |
           git fetch origin
           git checkout -B autosave
-          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }} HEAD:autosave --force
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:autosave --force
