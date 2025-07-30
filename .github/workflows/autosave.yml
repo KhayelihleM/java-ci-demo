@@ -2,8 +2,8 @@ name: AutoSave Branch Sync
 
 on:
   push:
-    branches:
-      - main
+    branches: [  main ]
+     
 
 jobs:
   autosave:
