@@ -1,24 +1,11 @@
 package com.example;
 
-public class App {
-    public static void main(String[] args) {
-        System.out.println(greet("World"));
-        System.out.println(greetWithPrefix("Mr Manyathi", "Welcome"));
-        System.out.println("Character count: " + countCharacters("DevOps"));
-    }
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-    // Original greet method
-public static String greet(String name) {
-    // ❌ Intentional bug: return wrong greeting
-    return "Hi, " + name;  // Missing "!" and uses "Hi" instead of "Hello"
-}
-    // New method: greet with a custom prefix
-    public static String greetWithPrefix(String name, String prefix) {
-        return prefix + ", " + name + "!";
-    }
-
-    // New method: count characters in a string
-    public static int countCharacters(String input) {
-        return input.length();
+public class AppTest {
+    @Test
+    public void testGreet() {
+        assertEquals("Hello, World!", App.greet("World"));  // This should fail if greet() returns "Hi, World"
     }
 }
