@@ -1,0 +1,25 @@
+name: AutoSave Branch Sync
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  autosave:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v3
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Push to autosave branch
+        run: |
+          git fetch origin
+          git checkout -B autosave
+          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }} HEAD:autosave --force
