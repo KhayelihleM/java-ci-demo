@@ -8,10 +8,10 @@ public class App {
     }
 
     // Original greet method
-    public static String greet(String name) {
-        return "Hello, " + name + "!";
-    }
-
+public static String greet(String name) {
+    // ❌ Intentional bug: return wrong greeting
+    return "Hi, " + name;  // Missing "!" and uses "Hi" instead of "Hello"
+}
     // New method: greet with a custom prefix
     public static String greetWithPrefix(String name, String prefix) {
         return prefix + ", " + name + "!";
@@ -19,6 +19,6 @@ public class App {
 
     // New method: count characters in a string
     public static int countCharacters(String input) {
-        return input.lengt();
+        return input.length();
     }
 }

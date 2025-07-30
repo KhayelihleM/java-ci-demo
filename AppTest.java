@@ -5,7 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AppTest {
     @Test
-    public void testGreet() {
-        assertEquals("Hello, World!", App.greet("World"));
-    }
+public void testGreet() {
+    // ✅ Still expecting "Hello, World!"
+    assertEquals("Hello, World!", App.greet("World"));
+}
 }
