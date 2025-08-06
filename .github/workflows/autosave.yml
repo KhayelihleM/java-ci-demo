@@ -21,8 +21,6 @@ jobs:
 
       - name: Push to autosave branch
         run: |
-         env: 
-          GH_Token: ${{secrets.PAT_TOKEN}}
 
           git fetch origin
           git checkout -B autosave
