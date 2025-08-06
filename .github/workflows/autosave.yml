@@ -1,12 +1,15 @@
 name: AutoSave Branch Sync
 
 on:
-  push:
-    branches: [  main ]
+  workflow_run:
+    workflows: ["Java CI - Test App"]
+    types:
+      - completed
      
 
 jobs:
   autosave:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
