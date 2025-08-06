@@ -21,6 +21,9 @@ jobs:
 
       - name: Push to autosave branch
         run: |
+         env: 
+          GH_Token: ${{secrets.PAT_TOKEN}}
+
           git fetch origin
           git checkout -B autosave
-          git push https://x-access-token:${{ secrets.AUTOSAVE_TOKEN }}@github.com/${{ github.repository }} HEAD:autosave --force
+          git push https://x-access-token:${{ secrets.PAT_TOKEN}}@github.com/${{ github.repository }} HEAD:autosave --force
