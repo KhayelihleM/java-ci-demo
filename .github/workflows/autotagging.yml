@@ -1,0 +1,34 @@
+name: Auto Tagging
+
+on:
+  workflow_run:
+    workflows: ["Commit Lint Check"]
+    types:
+      - completed
+
+
+jobs:
+  auto-tagging:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+ 
+      - name: Get Latest Tag
+        id: get_tag
+        run: |
+          latest=$(git describe --tags `git rev-list --tags --max-count=1`)
+          echo "latest=$latest" >> $GITHUB_OUTPUT
+
+      - name: Bump Version & Tag
+        run: |
+          new_tag="v$(date + '%Y.%m.%d.%H%M')"
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git tag $new_tag
+          git push origin $new_tag
+
+          
+
+    
