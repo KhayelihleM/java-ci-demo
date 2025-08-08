@@ -8,6 +8,6 @@ public class AppTest {
     @Test
     public void testGreet() {
         // Test that greet() returns "Hello, World!"
-        assertEquals("Hello, World!2", App.greet("World"));
+        assertEquals("Hello, World!", App.greet("World"));
     }
 }
