@@ -11,6 +11,7 @@ This project contains:
 - A GitHub Actions workflow that:
   - Builds the project with Maven
   - Runs tests on push or pull request to the `main` branch
-
-## 📁 Project Structure
+  - Checks for CommitLint messages
+  - Automatically tag and release the app
+  - Duplicates main branch to auto recover branch for additional backups
 
