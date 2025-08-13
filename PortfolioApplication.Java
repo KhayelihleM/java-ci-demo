@@ -9,3 +9,4 @@ public class PortfolioApplication {
         SpringApplication.run(PortfolioApplication.class, args);
     }
 }
+        <p>&copy; 2025 Khayelihle Manyathi</p>
